@@ -35,7 +35,7 @@ interface CloseButtonProps {
 }
 
 const CloseButtonAndroid: React.FC<CloseButtonProps> = (props) => {
-  let closeImage: ImageSourcePropType = require('./assets/images/close.android.png')
+  let closeImage: ImageSourcePropType = require('../assets/images/close.android.png')
 
   if (props.image) {
     closeImage = props.image
@@ -67,7 +67,7 @@ const CloseButtonAndroid: React.FC<CloseButtonProps> = (props) => {
 }
 
 const CloseButtonIOS: React.FC<CloseButtonProps> = (props) => {
-  let closeImage = require('./assets/images/close.ios.png')
+  let closeImage = require('../assets/images/close.ios.png')
 
   if (props.image) {
     closeImage = props.image
