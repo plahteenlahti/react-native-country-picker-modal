@@ -168,20 +168,18 @@ const ItemSeparatorComponent = () => {
 
 const { height } = Dimensions.get('window')
 
-export const CountryList = (props: CountryListProps) => {
-  const {
-    data,
-    withAlphaFilter,
-    withEmoji,
-    withFlag,
-    withCallingCode,
-    withCurrency,
-    onSelect,
-    filter,
-    flatListProps,
-    filterFocus,
-  } = props
-
+export const CountryList = ({
+  data,
+  withAlphaFilter,
+  withEmoji,
+  withFlag,
+  withCallingCode,
+  withCurrency,
+  onSelect,
+  filter,
+  flatListProps,
+  filterFocus = undefined,
+}: CountryListProps) => {
   const flatListRef = useRef<FlatList<Country>>(null)
   const [letter, setLetter] = useState<string>('')
   const { itemHeight, backgroundColor } = useTheme()
@@ -253,8 +251,4 @@ export const CountryList = (props: CountryListProps) => {
       )}
     </View>
   )
-}
-
-CountryList.defaultProps = {
-  filterFocus: undefined,
 }
