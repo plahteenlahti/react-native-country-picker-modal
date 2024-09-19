@@ -32,6 +32,7 @@
     "resolveJsonModule": true,
     "noFallthroughCasesInSwitch": true,
     "strictPropertyInitialization": false,
+    "noEmit": false,
     "lib": [
       "dom",
       "esnext"
