@@ -87,44 +87,44 @@ interface CountryPickerProps {
   onClose?(): void
 }
 
-export const CountryPicker = (props: CountryPickerProps) => {
-  const {
-    allowFontScaling,
-    countryCode,
-    region,
-    subregion,
-    countryCodes,
-    renderFlagButton: renderButton,
-    renderCountryFilter,
-    filterProps,
-    modalProps,
-    flatListProps,
-    onSelect,
-    withEmoji,
-    withFilter,
-    withCloseButton,
-    withCountryNameButton,
-    withCallingCodeButton,
-    withCurrencyButton,
-    containerButtonStyle,
-    withAlphaFilter,
-    withCallingCode,
-    withCurrency,
-    withFlag,
-    withModal,
-    disableNativeModal,
-    withFlagButton,
-    onClose: handleClose,
-    onOpen: handleOpen,
-    closeButtonImage,
-    closeButtonStyle,
-    closeButtonImageStyle,
-    excludeCountries,
-    placeholder,
-    preferredCountries,
-  } = props
+export const CountryPicker = ({
+  allowFontScaling = true,
+  withAlphaFilter = false,
+  withCallingCode = false,
+  withModal = true,
+  placeholder = 'Select Country',
+  countryCode,
+  region,
+  subregion,
+  countryCodes,
+  renderFlagButton: renderButton,
+  renderCountryFilter,
+  filterProps,
+  modalProps,
+  flatListProps,
+  onSelect,
+  withEmoji,
+  withFilter,
+  withCloseButton,
+  withCountryNameButton,
+  withCallingCodeButton,
+  withCurrencyButton,
+  containerButtonStyle,
+  withCurrency,
+  withFlag,
+  disableNativeModal,
+  withFlagButton,
+  onClose: handleClose,
+  onOpen: handleOpen,
+  closeButtonImage,
+  closeButtonStyle,
+  closeButtonImageStyle,
+  excludeCountries,
+  preferredCountries,
+  ...rest
+}: CountryPickerProps) => {
   const [state, setState] = useState<State>({
-    visible: props.visible || false,
+    visible: rest.visible || false,
     countries: [],
     filter: '',
     filterFocus: false,
@@ -133,10 +133,10 @@ export const CountryPicker = (props: CountryPickerProps) => {
   const { visible, filter, countries, filterFocus } = state
 
   useEffect(() => {
-    if (state.visible !== props.visible) {
-      setState({ ...state, visible: props.visible || false })
+    if (state.visible !== rest.visible) {
+      setState({ ...state, visible: rest.visible || false })
     }
-  }, [props.visible])
+  }, [rest.visible])
 
   const onOpen = () => {
     setState({ ...state, visible: true })
@@ -242,12 +242,4 @@ export const CountryPicker = (props: CountryPickerProps) => {
       </CountryModal>
     </>
   )
-}
-
-CountryPicker.defaultProps = {
-  withModal: true,
-  withAlphaFilter: false,
-  withCallingCode: false,
-  placeholder: 'Select Country',
-  allowFontScaling: true,
 }

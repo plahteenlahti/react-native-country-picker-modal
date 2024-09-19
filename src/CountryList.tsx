@@ -89,16 +89,17 @@ interface CountryItemProps {
   withCurrency?: boolean
   onSelect(country: Country): void
 }
-const CountryItem = (props: CountryItemProps) => {
+
+const CountryItem = ({
+  country,
+  onSelect,
+  withFlag = true,
+  withEmoji,
+  withCallingCode = false,
+  withCurrency,
+}: CountryItemProps) => {
   const { activeOpacity, itemHeight, flagSize } = useTheme()
-  const {
-    country,
-    onSelect,
-    withFlag,
-    withEmoji,
-    withCallingCode,
-    withCurrency,
-  } = props
+
   const extraContent: string[] = []
   if (
     withCallingCode &&
@@ -136,10 +137,7 @@ const CountryItem = (props: CountryItemProps) => {
     </TouchableOpacity>
   )
 }
-CountryItem.defaultProps = {
-  withFlag: true,
-  withCallingCode: false,
-}
+
 const MemoCountryItem = memo<CountryItemProps>(CountryItem)
 
 const renderItem =
