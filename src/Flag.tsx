@@ -78,9 +78,9 @@ const EmojiFlag = memo(({ countryCode, flagSize }: FlagType) => {
 })
 
 export const Flag = ({
+  withEmoji = true,
+  withFlagButton = true,
   countryCode,
-  withEmoji,
-  withFlagButton,
   flagSize,
 }: FlagType) =>
   withFlagButton ? (
@@ -92,8 +92,3 @@ export const Flag = ({
       )}
     </View>
   ) : null
-
-Flag.defaultProps = {
-  withEmoji: true,
-  withFlagButton: true,
-}

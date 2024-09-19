@@ -47,15 +47,16 @@ const FlagText = (props: TextProps & { children: ReactNode }) => (
   <CountryText {...props} style={styles.something} />
 )
 
+
 const FlagWithSomething = memo(
   ({
     allowFontScaling,
     countryCode,
-    withEmoji,
-    withCountryNameButton,
-    withCurrencyButton,
-    withCallingCodeButton,
-    withFlagButton,
+    withEmoji = true,
+    withCountryNameButton = false,
+    withCurrencyButton = false,
+    withCallingCodeButton = false,
+    withFlagButton = true,
     flagSize,
     placeholder,
   }: FlagWithSomethingProp) => {
@@ -162,10 +163,3 @@ export const FlagButton = ({
   )
 }
 
-FlagButton.defaultProps = {
-  withEmoji: true,
-  withCountryNameButton: false,
-  withCallingCodeButton: false,
-  withCurrencyButton: false,
-  withFlagButton: true,
-}
